@@ -31,6 +31,7 @@ public class NotebookItemController : ControllerBase
     [HttpGet]
     public IEnumerable<NotebookItem> Get()
     {
+        _logger.LogInformation("Notebooks Response");
         return Enumerable.Range(1, 10).Select(index => new NotebookItem
         {
             BrandName = Brands[Random.Shared.Next(Brands.Length)],
