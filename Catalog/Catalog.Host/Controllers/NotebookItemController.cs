@@ -31,13 +31,13 @@ public class NotebookItemController : ControllerBase
     [HttpGet]
     public IEnumerable<NotebookItem> Get()
     {
-        return Enumerable.Range(1, Brands.Length).Select(index => new NotebookItem
+        return Enumerable.Range(1, 10).Select(index => new NotebookItem
         {
             BrandName = Brands[Random.Shared.Next(Brands.Length)],
             Processor = ProcessorsTypes[Random.Shared.Next(ProcessorsTypes.Length)],
             GraphicsCard = GraphicsCardType[Random.Shared.Next(GraphicsCardType.Length)],
             Price = Math.Round(Random.Shared.NextDouble() * 1000, 2),
-            OrderDate = DateTime.Now.AddDays(Random.Shared.NextDouble() * 10)
+            OrderDate = DateTime.Now.AddDays(Random.Shared.Next(-10, 11))
         })
             .ToArray();
     }
